@@ -6,13 +6,14 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import br.com.zupacademy.ricardo.casadocodigo.models.Autor;
+import br.com.zupacademy.ricardo.casadocodigo.validation.UniqueEmail;
 
 public class AutorForm {
 
 	@NotEmpty
 	private String nome;
 	
-	@NotEmpty @Email
+	@NotEmpty @Email @UniqueEmail
 	private String email;
 	
 	@NotEmpty @Length(max=400)
@@ -21,7 +22,7 @@ public class AutorForm {
 	public AutorForm(@NotEmpty String nome, @NotEmpty @Email String email,
 			@NotEmpty @Length(max = 400) String descricao) {
 		this.nome = nome;
-		this.email = email;
+		this.email = email.toLowerCase();
 		this.descricao = descricao;
 	}
 

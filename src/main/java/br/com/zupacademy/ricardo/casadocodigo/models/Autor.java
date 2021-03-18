@@ -2,6 +2,7 @@ package br.com.zupacademy.ricardo.casadocodigo.models;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +24,7 @@ public class Autor {
 	private String nome;
 	
 	@NotEmpty @Email
+	@Column(unique=true)
 	private String email;
 	
 	@NotEmpty @Length(max=400)

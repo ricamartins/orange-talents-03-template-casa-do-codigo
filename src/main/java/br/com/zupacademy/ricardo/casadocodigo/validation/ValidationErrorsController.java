@@ -1,4 +1,4 @@
-package br.com.zupacademy.ricardo.casadocodigo.controllers;
+package br.com.zupacademy.ricardo.casadocodigo.validation;
 
 import java.util.List;
 
@@ -10,8 +10,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import br.com.zupacademy.ricardo.casadocodigo.controllers.dto.ResponseError;
 
 @RestControllerAdvice
 public class ValidationErrorsController {

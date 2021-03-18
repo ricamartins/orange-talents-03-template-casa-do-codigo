@@ -1,4 +1,4 @@
-package br.com.zupacademy.ricardo.casadocodigo.controllers.dto;
+package br.com.zupacademy.ricardo.casadocodigo.validation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
