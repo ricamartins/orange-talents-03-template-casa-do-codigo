@@ -3,11 +3,12 @@ package br.com.zupacademy.ricardo.casadocodigo.controllers.forms;
 import javax.validation.constraints.NotEmpty;
 
 import br.com.zupacademy.ricardo.casadocodigo.models.Categoria;
+import br.com.zupacademy.ricardo.casadocodigo.validation.Unique;
 import br.com.zupacademy.ricardo.casadocodigo.validation.UniqueName;
 
 public class CategoriaForm {
 
-	@NotEmpty @UniqueName
+	@NotEmpty @Unique(klass=Categoria.class, field="nome")
 	private String nome;
 
 	@Deprecated

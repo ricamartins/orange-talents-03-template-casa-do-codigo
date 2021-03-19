@@ -6,6 +6,7 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import br.com.zupacademy.ricardo.casadocodigo.models.Autor;
+import br.com.zupacademy.ricardo.casadocodigo.validation.Unique;
 import br.com.zupacademy.ricardo.casadocodigo.validation.UniqueEmail;
 
 public class AutorForm {
@@ -13,7 +14,7 @@ public class AutorForm {
 	@NotEmpty
 	private String nome;
 	
-	@NotEmpty @Email @UniqueEmail
+	@NotEmpty @Email @Unique(klass=Autor.class, field="email")
 	private String email;
 	
 	@NotEmpty @Length(max=400)
