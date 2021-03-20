@@ -34,6 +34,8 @@ public class Autor {
 	
 	@Deprecated
 	public Autor() {}
+	
+	public Autor(Long id) {this.id = id;}
 
 	public Autor(@NotEmpty String nome, @NotEmpty @Email String email, @NotEmpty @Length(max = 400) String descricao) {
 		this.nome = nome;
