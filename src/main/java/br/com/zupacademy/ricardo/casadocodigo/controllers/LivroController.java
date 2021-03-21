@@ -2,8 +2,6 @@ package br.com.zupacademy.ricardo.casadocodigo.controllers;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -46,4 +44,15 @@ public class LivroController {
 		return ResponseEntity.ok(LivroResponse.converter(livros));
 	}
 	
+	@GetMapping("/{id}")
+	@JsonView({View.LivroView.Detalhes.class})
+	public ResponseEntity<LivroResponse> buscarLivro(@PathVariable Long id) {
+		Optional<Livro> livro = repository.findById(id);
+		if (livro.isPresent()) {
+			return ResponseEntity.ok(LivroResponse.converter(livro.get()));
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
 }

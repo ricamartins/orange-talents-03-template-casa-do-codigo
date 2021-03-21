@@ -16,20 +16,28 @@ public class LivroResponse {
 	@JsonView({View.LivroView.Minimo.class})
 	private String titulo;
 	
+	@JsonView({View.LivroView.Detalhes.class})
 	private String resumo;
 	
+	@JsonView({View.LivroView.Detalhes.class})
 	private String sumario;
 	
+	@JsonView({View.LivroView.Detalhes.class})
 	private Double preco;
 	
+	@JsonView({View.LivroView.Detalhes.class})
 	private Integer paginas;
 
+	@JsonView({View.LivroView.Detalhes.class})
 	private String isbn;
 	
+	@JsonView({View.LivroView.Detalhes.class})
 	private LocalDate dataLancamento;
 
+	@JsonView({View.LivroView.Detalhes.class})
 	private CategoriaResponse categoria;
 	
+	@JsonView({View.LivroView.Detalhes.class})
 	private AutorResponse autor;
 
 	public LivroResponse(Livro livro) {
