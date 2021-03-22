@@ -18,9 +18,10 @@ import br.com.zupacademy.ricardo.casadocodigo.models.Livro;
 import br.com.zupacademy.ricardo.casadocodigo.validation.MustExist;
 import br.com.zupacademy.ricardo.casadocodigo.validation.Unique;
 
+@Unique(fields={"titulo", "isbn"})
 public class LivroForm {
 
-	@NotEmpty @Unique(klass=Livro.class, field="titulo")
+	@NotEmpty
 	private String titulo;
 	
 	@NotEmpty @Length(max=500)
@@ -34,7 +35,7 @@ public class LivroForm {
 	@NotNull @Min(100)
 	private Integer paginas;
 
-	@NotEmpty @ISBN @Unique(klass=Livro.class, field="isbn")
+	@NotEmpty @ISBN
 	private String isbn;
 	
 	@NotNull @Future @JsonFormat(pattern="yyyy/MM/dd")
@@ -61,8 +62,19 @@ public class LivroForm {
 		this.autorId = autorId;
 	}
 
+	//Jackson não consegue desserializar LocalDate pelo construtor 
 	public void setDataLancamento(LocalDate dataLancamento) {
 		this.dataLancamento = dataLancamento;
+	}
+	
+	//Para validation @Unique
+	public String getTitulo() {
+		return titulo;
+	}
+	
+	//Para validation @Unique
+	public String getIsbn() {
+		return isbn;
 	}
 
 	public Livro converter() {

@@ -4,11 +4,11 @@ import javax.validation.constraints.NotEmpty;
 
 import br.com.zupacademy.ricardo.casadocodigo.models.Categoria;
 import br.com.zupacademy.ricardo.casadocodigo.validation.Unique;
-import br.com.zupacademy.ricardo.casadocodigo.validation.UniqueName;
 
+@Unique(fields={"nome"})
 public class CategoriaForm {
 
-	@NotEmpty @Unique(klass=Categoria.class, field="nome")
+	@NotEmpty
 	private String nome;
 
 	@Deprecated

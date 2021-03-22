@@ -7,14 +7,14 @@ import org.hibernate.validator.constraints.Length;
 
 import br.com.zupacademy.ricardo.casadocodigo.models.Autor;
 import br.com.zupacademy.ricardo.casadocodigo.validation.Unique;
-import br.com.zupacademy.ricardo.casadocodigo.validation.UniqueEmail;
 
+@Unique(fields={"email"})
 public class AutorForm {
 
 	@NotEmpty
 	private String nome;
 	
-	@NotEmpty @Email @Unique(klass=Autor.class, field="email")
+	@NotEmpty @Email
 	private String email;
 	
 	@NotEmpty @Length(max=400)
@@ -27,6 +27,11 @@ public class AutorForm {
 		this.descricao = descricao;
 	}
 
+	//Para a validação @Unique
+	public String getEmail() {
+		return email;
+	}
+	
 	public Autor converter() {
 		return new Autor(nome, email, descricao);
 	}
