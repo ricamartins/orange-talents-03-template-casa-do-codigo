@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 
 import br.com.zupacademy.ricardo.casadocodigo.models.Estado;
 import br.com.zupacademy.ricardo.casadocodigo.models.Pais;
+import br.com.zupacademy.ricardo.casadocodigo.validation.MustExist;
 import br.com.zupacademy.ricardo.casadocodigo.validation.Unique;
 
 @Unique(fields={"nome,pais"})
@@ -14,6 +15,7 @@ public class EstadoForm {
 	private String nome;
 
 	@NotNull
+	@MustExist(klass=Pais.class)
 	private Long paisId;
 
 	public EstadoForm(@NotEmpty String nome, @NotNull Long paisId) {
