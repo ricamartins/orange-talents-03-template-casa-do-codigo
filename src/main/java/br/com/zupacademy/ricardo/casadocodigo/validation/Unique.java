@@ -11,7 +11,7 @@ import javax.validation.Payload;
 
 @Documented
 @Constraint(validatedBy=UniqueValidator.class)
-@Target({ElementType.FIELD})
+@Target({ElementType.TYPE, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Unique {
 
@@ -19,6 +19,7 @@ public @interface Unique {
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 	
-	Class<?> klass();
+	Class<?> klass() default Unique.class;
 	String field() default "";
+	String[] fields() default {};
 }
