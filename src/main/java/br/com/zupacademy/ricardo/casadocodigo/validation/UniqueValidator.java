@@ -66,7 +66,6 @@ public class UniqueValidator implements ConstraintValidator<Unique, Object> {
 			
 			}
 			
-			System.out.println("Has violations: " + hasViolation);
 			if (hasViolation)
 				return false;
 			else
