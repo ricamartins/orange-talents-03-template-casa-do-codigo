@@ -25,9 +25,13 @@ public class Estado {
 	@Deprecated
 	public Estado() {}
 	
+	public Estado(Long id) {
+		this.id = id;
+	}
+	
 	public Estado(@NotEmpty String nome, @NotNull Pais pais) {
 		this.nome = nome;
 		this.pais = pais;
-	}	
-	
+	}
+
 }
